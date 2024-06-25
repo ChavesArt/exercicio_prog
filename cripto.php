@@ -1,7 +1,7 @@
 <?php
 
 
-$senha = "dallanora";
+$senha = "minhasenha";
 echo "Minha senha:$senha <br> <hr>";
 
 echo"Não recomendados <br>";
@@ -24,7 +24,7 @@ $hash = crypt($senha,'iffar');
 echo "<b>Crypt:</b> ". $hash;
 
 //password_hash
-$hash = password_hash($senha,PASSWORD_DEFAULT);
+$hash = password_hash($senha,PASSWORD_ARGON2I);
 echo "<br><b>Password_hash:</b> ". $hash;
 echo "<hr>";
 

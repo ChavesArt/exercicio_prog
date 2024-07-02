@@ -4,10 +4,11 @@ $conexao = conectar();
 
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
+$nivel = $_POST['nivel'];
 
 $hash = password_hash($senha,PASSWORD_ARGON2I);
 
-$sql = "INSERT INTO usuario (senha,nome) VALUES ('$hash','$nome')";
+$sql = "INSERT INTO usuario (senha,nome,nivel) VALUES ('$hash','$nome','$nivel')";
 $result = mysqli_query($conexao, $sql);
 if ($result) {
     header("Location: login.php");

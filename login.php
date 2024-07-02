@@ -1,3 +1,29 @@
+<?php
+
+session_start();
+
+
+if(isset($_POST['usuario'],$_POST['senha'])){
+    include ('conexao.php');
+    $conexao = conectar();
+
+    $sql = "SELECT * FROM usuario";
+    $result = mysqli_query($conexao, $sql);
+    $usuarios = mysqli_fetch_assoc($result);
+
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+
+    if($usuarios['nome'] == '$nome' && $usuarios['senha']){
+            header('location:comum.php');
+    }
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
